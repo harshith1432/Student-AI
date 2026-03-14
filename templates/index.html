@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}STUDENT AI - The Never-Tired Student{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="hero-content glass-panel">
+        <div class="badge">Version 1.0 Live</div>
+        <h1 class="hero-title">
+            The Student Who Never <span class="gradient-text">Gets Tired</span>
+        </h1>
+        <p class="hero-subtitle">
+            Teachers may get tired of giving work, but Student AI never gets tired of doing it.
+            Automate your assignments, solve problems, generate notes, and more.
+        </p>
+        
+        <div class="auth-forms" id="login-section">
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form active">
+                <h3>Welcome Back Teacher</h3>
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="login-username" required placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="login-password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="btn-text">Sign In</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <p class="toggle-auth">New here? <a href="#" id="show-register">Create an account</a></p>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form">
+                <h3>Join Student AI</h3>
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="reg-username" required placeholder="Choose a username">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="reg-email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="reg-password" required placeholder="Create a password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span class="btn-text">Sign Up</span>
+                    <i class="fas fa-user-plus"></i>
+                </button>
+                <p class="toggle-auth">Already have an account? <a href="#" id="show-login">Sign in</a></p>
+            </form>
+            
+            <div id="auth-alert" class="alert hidden"></div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="features-section">
+    <h2 class="section-title">What can the Student do?</h2>
+    <div class="features-grid">
+        <div class="feature-card glass-panel">
+            <div class="feature-icon"><i class="fas fa-pen-nib"></i></div>
+            <h3>Assignments</h3>
+            <p>Generate high-quality academic assignments with references and proper structure instantly.</p>
+        </div>
+        <div class="feature-card glass-panel">
+            <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+            <h3>Homework Solver</h3>
+            <p>Paste text or math problems and get detailed, step-by-step explanations.</p>
+        </div>
+        <div class="feature-card glass-panel">
+            <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Notes Generator</h3>
+            <p>Summarize chapters into key points, headings, and easy-to-read bullet points.</p>
+        </div>
+        <div class="feature-card glass-panel">
+            <div class="feature-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <h3>Letter Generator</h3>
+            <p>Generate leave letters, apologies, applications, and more with just a context prompt.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

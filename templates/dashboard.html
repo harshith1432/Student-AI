@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Student AI{% endblock %}
+
+{% block content %}
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar glass-panel">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active" data-target="task-panel">
+                <i class="fas fa-robot"></i> Give Task
+            </li>
+            <li class="nav-item" data-target="history-panel">
+                <i class="fas fa-history"></i> Task History
+            </li>
+            <li class="nav-item" data-target="stats-panel">
+                <i class="fas fa-chart-line"></i> Dashboard Stats
+            </li>
+        </ul>
+        
+        <div class="personality-selector">
+            <h4>Student Personality</h4>
+            <select id="personality" class="glass-select">
+                <option value="hardworking student">Hardworking Student</option>
+                <option value="funny student">Funny Student</option>
+                <option value="smart topper">Smart Topper</option>
+            </select>
+        </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="workspace">
+        <!-- Task Panel -->
+        <div id="task-panel" class="panel active">
+            <div class="panel-header glass-panel">
+                <h2>Give Instruction</h2>
+                <div class="task-tabs">
+                    <button class="tab-btn active" data-type="assignment">Assignment</button>
+                    <button class="tab-btn" data-type="solver">Solver</button>
+                    <button class="tab-btn" data-type="notes">Notes</button>
+                    <button class="tab-btn" data-type="letter">Letter</button>
+                </div>
+            </div>
+
+            <div class="input-area glass-panel">
+                <div class="voice-controls">
+                    <button id="voice-btn" class="btn btn-icon" title="Dictate prompt">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <span id="voice-status" class="status-text hidden">Listening...</span>
+                </div>
+                
+                <textarea id="task-prompt" class="glass-input" rows="5" placeholder="E.g. Write a 200 word assignment about Artificial Intelligence..."></textarea>
+                
+                <div class="input-actions">
+                    <button id="submit-task" class="btn btn-primary pulse-hover">
+                        <i class="fas fa-paper-plane"></i> Submit Task
+                    </button>
+                </div>
+            </div>
+
+            <!-- AI Response Area -->
+            <div id="response-area" class="response-area glass-panel hidden">
+                <div class="response-header">
+                    <h3>Student Response:</h3>
+                    <div class="export-actions">
+                        <button class="btn btn-sm btn-outline export-btn" data-format="txt">TXT</button>
+                        <button class="btn btn-sm btn-outline export-btn" data-format="docx">DOCX</button>
+                        <button class="btn btn-sm btn-outline export-btn" data-format="pdf" data-handwritten="false">PDF</button>
+                        <button class="btn btn-sm btn-primary export-btn" data-format="pdf" data-handwritten="true">
+                            <i class="fas fa-pen-fancy"></i> Handwritten PDF
+                        </button>
+                    </div>
+                </div>
+                <div id="loader" class="loader hidden">
+                    <div class="typing-indicator">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p>Student is thinking...</p>
+                </div>
+                <div id="response-content" class="markdown-body"></div>
+            </div>
+        </div>
+
+        <!-- History Panel -->
+        <div id="history-panel" class="panel hidden glass-panel">
+            <h2>Your Task History</h2>
+            <div id="history-list" class="history-list">
+                <!-- History items injected here via JS -->
+            </div>
+        </div>
+        
+        <!-- Stats Panel -->
+        <div id="stats-panel" class="panel hidden glass-panel">
+            <h2>Your Activity</h2>
+            <!-- Simple stats presentation -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h4 id="stat-total-tasks">0</h4>
+                    <p>Tasks Completed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

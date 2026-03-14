@@ -1,0 +1,29 @@
+Subject: Meet Student AI – The Assistant That Never Gets Tired of Homework! 🎓🤖
+
+Dear [Name],
+
+Are you tired of the endless cycle of assignments, note-taking, and complex problems? Meet **Student AI**, your new digital academic partner that works around the clock without ever breaking a sweat.
+
+As we say: *"Teachers may get tired of giving work, but the Student AI never gets tired of doing it."*
+
+**What can Student AI do for you?**
+- **Write Assignments:** Instantly generate structured essays and reports.
+- **Solve Questions:** Get step-by-step explanations for tough problems.
+- **Generate Study Notes:** Turn any topic into a concise, readable summary.
+- **Draft Letters:** Professional correspondence in seconds.
+- **Handwritten Exports:** Unique PDF export that looks just like real handwriting!
+
+**Why choose Student AI?**
+- **Personalized Personas:** Choose from Hardworking, Funny, or class Topper styles.
+- **Modern Interface:** A sleek, dark-themed dashboard built for the modern student.
+- **Voice Recognition:** Just speak your task, and let the AI do the rest.
+
+Check out the project on GitHub: [https://github.com/harshith1432/Student-AI](https://github.com/harshith1432/Student-AI)
+
+Ready to revolutionize your academic workflow? Download and run Student AI today!
+
+Best regards,
+
+Harshith
+Creator of Student AI
+[Your Portfolio/LinkedIn Link]

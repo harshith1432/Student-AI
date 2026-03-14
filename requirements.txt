@@ -1,0 +1,15 @@
+flask
+flask_sqlalchemy
+psycopg2-binary
+flask_login
+python-docx
+reportlab
+huggingface_hub
+bcrypt
+PyJWT
+flask-wtf
+flask-limiter
+python-dotenv
+xhtml2pdf
+markdown
+beautifulsoup4
