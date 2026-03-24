@@ -12,3 +12,4 @@ flask-limiter
 python-dotenv
 markdown
 beautifulsoup4
+gunicorn
