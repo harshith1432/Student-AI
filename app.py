@@ -69,7 +69,12 @@ def create_app(config_class=Config):
 # ============================================================
 # 🔥 IMPORTANT: THIS LINE FIXES YOUR GUNICORN ERROR
 # ============================================================
-app = create_app()
+try:
+    app = create_app()
+    print("✅ App created successfully")
+except Exception as e:
+    print("❌ ERROR CREATING APP:", e)
+    raise e
 
 
 # ============================================================
