@@ -3,9 +3,12 @@ from flask import Flask
 from extensions import db, login_manager, limiter, csrf
 from config import Config
 
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+    print("🚀 App starting...")
 
     # ---------------------------
     # LOGIN MANAGER CONFIG
@@ -18,7 +21,7 @@ def create_app(config_class=Config):
         try:
             return User.query.get(int(user_id))
         except Exception as e:
-            print("User load error:", e)
+            print("❌ User load error:", e)
             return None
 
     # ---------------------------
@@ -39,7 +42,7 @@ def create_app(config_class=Config):
         except Exception as e:
             print("❌ DB create_all error:", e)
 
-        # Execute schema.sql if exists
+        # Execute schema.sql safely
         schema_path = os.path.join(os.path.dirname(__file__), 'database', 'schema.sql')
 
         if os.path.exists(schema_path):
@@ -52,7 +55,7 @@ def create_app(config_class=Config):
                     conn.execute(text(schema_sql))
                     conn.commit()
 
-                print("✅ schema.sql executed successfully")
+                print("✅ schema.sql executed")
 
             except Exception as e:
                 print("❌ schema.sql error:", e)
@@ -69,19 +72,32 @@ def create_app(config_class=Config):
         from routes.admin_routes import admin_bp
 
         app.register_blueprint(main_bp)
-        app.register_blueprint(auth_bp)
-        app.register_blueprint(task_bp)
-        app.register_blueprint(admin_bp)
+        app.register_blueprint(auth_bp, url_prefix='/auth')
+        app.register_blueprint(task_bp, url_prefix='/task')
+        app.register_blueprint(admin_bp, url_prefix='/admin')
 
         print("✅ Blueprints registered")
 
     except Exception as e:
         print("❌ Blueprint error:", e)
 
+    # ---------------------------
+    # 🔥 ROOT ROUTE FIX (IMPORTANT)
+    # ---------------------------
+    @app.route("/")
+    def home():
+        return "🚀 Student AI Backend is LIVE!"
+
+    # ---------------------------
+    # DEBUG: SHOW ROUTES
+    # ---------------------------
+    print("📌 Available Routes:")
+    print(app.url_map)
+
     return app
 
 
 # ---------------------------
-# FOR GUNICORN COMPATIBILITY
+# FOR GUNICORN
 # ---------------------------
 app = create_app()
