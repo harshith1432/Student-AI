@@ -10,6 +10,5 @@ PyJWT
 flask-wtf
 flask-limiter
 python-dotenv
-xhtml2pdf
 markdown
 beautifulsoup4
